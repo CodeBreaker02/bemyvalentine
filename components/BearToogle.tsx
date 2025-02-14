@@ -344,8 +344,6 @@ const BearToggle: React.FC = () => {
           />
         </svg>
       </div>
-      <span className="checkbox__text2">Yes</span>
-
       <div ref={pawRef} className="bear__paw" />
       <div className="mask" />
       <button ref={yesButtonRef} className="checkbox2" onClick={onYesClick}>
