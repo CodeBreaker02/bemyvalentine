@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #fdf2f8;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mask {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fdf2f8;
+}
+
+.bear {
+  width: 100%;
+  background: transparent;
+  transform: translate(0, 100%);
+}
+
+.bear__swear {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background: #fff;
+  font-weight: bolder;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.bear__swear:before {
+  content: '';
+  background: #fff;
+  position: absolute;
+  top: 90%;
+  right: 70%;
+  height: 30px;
+  width: 30px;
+  clip-path: polygon(0 100%, 100% 0, 50% 0);
+  -webkit-clip-path: polygon(0 100%, 100% 0, 50% 0);
+}
+
+.bear__wrap {
+  width: 100px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%) rotate(5deg) translate(0, -60%);
+  background: transparent;
+}
+
+.bear__arm-wrap {
+  background: transparent;
+  position: fixed;
+  height: 30px;
+  width: 90px;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  transform: translate(0, -50%) rotate(0deg);
+}
+
+.bear__arm {
+  background: transparent;
+  transform-origin: left;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-35%, -50%) scaleX(1);
+}
+
+.bear__paw {
+  background: #FFFEFD;
+  border: 2px solid #171717;
+  border-radius: 100%;
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform-origin: right;
+  transform: translate(80px, -15px) scaleX(0);
+}
+
+.checkbox,
+.checkbox2 {
+  border: none;
+  border-radius: 12px;
+  height: 100px;
+  position: fixed;
+  width: 200px;
+  z-index: 5;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.12);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkbox2 {
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.checkbox:hover,
+.checkbox2:hover {
+  transform: translate(-50%, -52%);
+  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.18);
+}
+
+.checkbox [type='checkbox'] {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 3;
+  margin: 0;
+}
+
+.checkbox__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  z-index: 1;
+}
+
+.checkbox__bg2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #be185d, #9d174d);
+  z-index: 1;
+}
+
+.checkbox__text,
+.checkbox__text2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  to {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.checkbox__bg::after,
+.checkbox__bg2::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0) 100%
+  );
+  animation: shine 3s infinite;
+  z-index: 1;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 326 78% 95%;
+    --primary-foreground: 326 73% 24%;
+    --secondary: 327 73% 97%;
+    --secondary-foreground: 326 73% 24%;
+    --muted: 327 73% 97%;
+    --muted-foreground: 326 73% 24%;
+    --accent: 327 73% 97%;
+    --accent-foreground: 326 73% 24%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 326 78% 95%;
+    --input: 326 78% 95%;
+    --ring: 326 78% 60%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
