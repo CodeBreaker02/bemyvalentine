@@ -8,7 +8,7 @@ const LovePage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (code.toLowerCase() === "princesse") {
       setIsAuthenticated(true);
@@ -28,7 +28,7 @@ const LovePage = () => {
               ❤️ Page secrète pour mon amour ❤️
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Pour voir ton message d'amour, réponds à cette question
+              Pour voir ton message d`&apos;`amour, réponds à cette question
             </p>
           </div>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ const LovePage = () => {
     <div className="min-h-screen bg-pink-50 p-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-pink-600 mb-8 animate-bounce">
-          Je t'aime ma Princesse ❤️
+          Je t`&apos;`aime ma Princesse ❤️
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -133,7 +133,7 @@ const LovePage = () => {
 
         <div className="text-center mt-12 space-y-4">
           <p className="text-2xl font-medium text-pink-700">
-            Je t'aime plus que tout au monde 💖
+            Je t`&apos;`aime plus que tout au monde 💖
           </p>
           <p className="text-xl text-pink-600">
             Tu es la plus belle chose qui me soit arrivée ✨
